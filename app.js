@@ -53,44 +53,37 @@ let moto = new Moto('123ACV', 'Negro', 'Ford', '320km/h',  'Luis');
 
 console.log(auto.quienEsElDuenio());
 auto.setValueDuenio('pepe');
-console.log(auto.quienEsElDuenio());*/
+console.log(auto.quienEsElDuenio());
+*/
 
-/*
-function makeSizer(size) {
-  return function() {
-    this.style.fontSize = `${size}px`;
+class Vehiculo {
+  constructor(color, marca, placa, velocidad) {
+    this.color = color;
+    this.marca = marca;
+    this.placa = placa;
+    this.velocidad = velocidad;
+  }
+
+  getVelocidad() {
+    return `El vehiculo ${this.marca} va a ${this.velocidad}`;
   }
 }
 
-let size12 = makeSizer(12);
-let size14 = makeSizer(14);
-let size15 = makeSizer(15);
-let size16 = makeSizer(16);
-
-document.querySelector('.js1').onclick = size12;
-document.querySelector('.js2').onclick = size14;
-document.querySelector('.js3').onclick = size15;
-document.querySelector('.js4').onclick = size16;*/
-
-"use strict";
-function foo() {
-  let name = 'sebastian';
-  let lastName = 'yabiku';
-
-  function getName() {
-    return name + ' ' + lastName
-  }
-
-  function getLastName() {
-    return lastName
-  }
-
-  return {
-    getName,
-    lastName
+class Moto extends Vehiculo {
+  constructor(color, marca, placa, velocidad) {
+    super(color, marca, placa, velocidad);
   }
 }
 
-let foo1 = foo();
+class Auto extends Vehiculo {
+  constructor(color, marca, placa, velocidad) {
+    super(color, marca, placa, velocidad);
+  }
+}
 
-console.log(foo1.getName());
+let torito = new Moto('rojo', 'torito', '2323sd', '140km/h');
+let torito1 = new Moto('rojo', 'torito', '2323sd', '14km/h');
+let torito2 = new Moto('rojo', 'torito', '2323sd', '10km/h');
+console.log(torito.getVelocidad());
+torito.velocidad = 'hola :|';
+console.log(torito.getVelocidad());
